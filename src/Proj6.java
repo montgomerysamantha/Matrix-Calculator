@@ -14,7 +14,7 @@ public class Proj6 {
         Scanner s = new Scanner(System.in);
 
 
-        if (args.length > 0) { //if the user has entered a valid file name
+        if (args.length > 0) { //if the user has supplied a command line argument
             System.out.println(Arrays.toString(args));
 
 
@@ -29,40 +29,39 @@ public class Proj6 {
 
             inFile.close();
 
-        }
 
+            boolean isError; //boolean to check if user has entered a bad answer (isError will equal true then)
+            do {
 
-        boolean isError; //boolean to check if user has entered a bad answer (isError will equal true then)
-        do {
+                System.out.print("Enter (p)rint, (a)dd, (s)ubtract, (m)ultiply, (t)ranspose, or (q)uit: ");
+                char answer = (s.nextLine().toLowerCase()).charAt(0);
 
-            System.out.print("Enter (p)rint, (a)dd, (s)ubtract, (m)ultiply, (t)ranspose, or (q)uit: ");
-            char answer = (s.nextLine().toLowerCase()).charAt(0);
-
-            switch (answer) {
-                case 'p':
-                    isError = false;
-                    break;
-                case 'a':
-                    isError = false;
-                    break;
-                case 's':
-                    isError = false;
-                    break;
-                case 'm':
-                    isError = false;
-                    break;
-                case 't':
-                    isError = false;
-                    break;
-                case 'q':
-                    isError = false;
-                    break;
-                default:
-                    System.out.println("Error: that is not a valid choice. Please try again.");
-                    isError = true;
-                    break;
-            }
-        } while (isError);
+                switch (answer) {
+                    case 'p':
+                        isError = false;
+                        break;
+                    case 'a':
+                        isError = false;
+                        break;
+                    case 's':
+                        isError = false;
+                        break;
+                    case 'm':
+                        isError = false;
+                        break;
+                    case 't':
+                        isError = false;
+                        break;
+                    case 'q':
+                        isError = false;
+                        break;
+                    default:
+                        System.out.println("Error: that is not a valid choice. Please try again.");
+                        isError = true;
+                        break;
+                }
+            } while (isError);
+        } else System.out.println("Error: Please supply a command line argument (ex: 'java Proj6 matrix1.txt')");
     }
 
 }
