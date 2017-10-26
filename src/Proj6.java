@@ -88,12 +88,24 @@ public class Proj6 {
                         System.out.println(matrix2.toString());
                         break;
                     case 'a':
+                        if (matrix1.plus(matrix2) == null) System.out.println("Error: the dimensions of the matrices do not match. You cannot add them.");
+                        else {
+                            System.out.println(matrix1.plus(matrix2));
+                        }
                         break;
                     case 's':
+                        if (matrix1.minus(matrix2) == null) System.out.println("Error: the dimensions of the matrices do not match. You cannot subtract them.");
+                        else {
+                            System.out.println(matrix1.minus(matrix2));
+                        }
                         break;
                     case 'm':
                         break;
                     case 't':
+                        System.out.println("First:\n");
+                        System.out.println(matrix1.transpose());
+                        System.out.println("Second: \n");
+                        System.out.println(matrix2.transpose());
                         break;
                     case 'q':
                         return;
@@ -108,4 +120,3 @@ public class Proj6 {
     }
 
 }
-

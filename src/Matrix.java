@@ -29,13 +29,37 @@ public class Matrix {
     }
 
     public Matrix plus(Matrix m) {
+        Matrix sum = new Matrix(r,c); //this is what our method will return
+        if (r == m.r && c == m.c) {
+            for (int i = 0; i < r; i++) { //loops through the rows of our matrix
+                for (int j = 0; j < c; j++) { //loops through the columns
 
-        return null;
+                    int add = arr[i][j] + m.arr[i][j]; //adding up the values at the specific index
+
+                    sum.setElem(i, j, add); //sets the value of 'sum' matrix to the operation we did (adding)
+                }
+            }
+            return sum;
+        }
+        return null; //returns null if the dimensions don't match
     }
 
     public Matrix minus(Matrix m) {
+        Matrix difference = new Matrix(r,c); //this is what our method will return
 
-        return null;
+        if (r == m.r && c == m.c) {
+            for (int i = 0; i < r; i++) { //loops through the rows of our matrix
+                for (int j = 0; j < c; j++) { //loops through the columns
+
+                    int subtract = arr[i][j] - m.arr[i][j]; //adding up the values at the specific index
+
+                    difference.setElem(i, j, subtract); //sets the value of 'difference' matrix to the operation we did (subtracting)
+                }
+            }
+            return difference;
+        }
+        return null; //returns null if the dimensions don't match
+
     }
 
     public Matrix times(Matrix m) {
@@ -44,7 +68,10 @@ public class Matrix {
     }
 
     public Matrix transpose() {
+        //rows become columns and columns become rows
 
-        return null;
+        Matrix m = new Matrix(c, r);
+
+        return m;
     }
 }
