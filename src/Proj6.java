@@ -45,11 +45,11 @@ public class Proj6 {
             for (int i = 0; i < row1; i++) { //loops through the rows of the matrix
 
                 /* creates a string array of the line of numbers in the file */
-                String pieces[] = inFile.nextLine().split(" ");
+                String pieces1[] = inFile.nextLine().split(" ");
 
                 for (int j = 0; j < col1; j++) { //loops through the columns of the matrix
 
-                    int num = Integer.parseInt(pieces[j]); //accesses our string array at index j
+                    int num = Integer.parseInt(pieces1[j]); //accesses our string array at index j
                     matrix1.setElem(i, j, num); //puts the number we extracted from the string array into our matrix
                 }
             }
@@ -70,8 +70,6 @@ public class Proj6 {
                     matrix2.setElem(i, j, num);
                 }
             }
-
-            inFile.close(); //closes connection to .txt file
 
             boolean isError = false; //boolean to check if user has entered a bad answer (isError will equal true then)
             char answer;
@@ -115,6 +113,8 @@ public class Proj6 {
                         break;
                 }
             } while (isError || answer != 'q');
+
+            inFile.close(); //closes connection to .txt file
 
         } else System.out.println("Error: Please supply a command line argument (ex: 'java Proj6 matrix1.txt')");
     }

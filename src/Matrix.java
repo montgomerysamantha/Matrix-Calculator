@@ -29,6 +29,7 @@ public class Matrix {
     }
 
     public Matrix plus(Matrix m) {
+
         Matrix sum = new Matrix(r,c); //this is what our method will return
         if (r == m.r && c == m.c) {
             for (int i = 0; i < r; i++) { //loops through the rows of our matrix
@@ -59,7 +60,6 @@ public class Matrix {
             return difference;
         }
         return null; //returns null if the dimensions don't match
-
     }
 
     public Matrix times(Matrix m) {
@@ -72,6 +72,25 @@ public class Matrix {
 
         Matrix m = new Matrix(c, r);
 
+        int trows = c;
+        int tcols = r;
+
+        for (int i = 0; i < trows; i++) { //looping through our new rows
+            for (int j = 0; j < tcols; j++) { //looping through our new columns
+                m.arr[i][j] = arr[j][i];
+            }
+        }
+
         return m;
     }
+
+    public void print() {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
 }
+
