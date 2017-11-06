@@ -1,5 +1,12 @@
 /**
- * This class, Proj6, contains the main method.
+ * This class, Proj6, contains the main method. This method gets the file
+ * name via a command line argument from the user. It then uses this to form the
+ * file path and opens up a connection to the matrix file the user asked for.
+ * It goes through the matrix file, first getting out the rows and cols of the
+ * first matrix, and then created a new Matrix object with the values that it
+ * read in from the file. It repeats the steps for the second matrix in the file too.
+ * Finally, it goes into the switch statement which add, subtracts, multiplies, or transposes
+ * the matrices by calling the methods in the Matrix class.
  *
  * @author Samantha Montgomery
  * @version 6
@@ -15,15 +22,13 @@ public class Proj6 {
 
 
         if (args.length > 0) { //if the user has supplied a command line argument
-            System.out.println(Arrays.toString(args));
-
 
             StringTokenizer st = new StringTokenizer(Arrays.toString(args), "[]"); //gets rid of brackets on args array
             String str = st.nextToken(); //this is our file name that the user has supplied
 
-            System.out.println(str); //testing to see what command line argument was
+            //System.out.println(str); //testing to see what command line argument was
 
-            Scanner inFile = new Scanner(new File("src/matrixInput/" + str)); // this is the file path
+            Scanner inFile = new Scanner(new File("matrixInput/" + str)); // this is the file path
 
 
 
@@ -98,6 +103,10 @@ public class Proj6 {
                         }
                         break;
                     case 'm':
+                        if (matrix1.times(matrix2) == null) System.out.println("Error: the dimensions of the matrices do not match. You cannot multiply them.");
+                        else {
+                            System.out.println(matrix1.times(matrix2));
+                        }
                         break;
                     case 't':
                         System.out.println("First:\n");
